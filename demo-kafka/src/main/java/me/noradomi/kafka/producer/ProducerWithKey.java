@@ -15,7 +15,7 @@ public class ProducerWithKey {
 
     Logger log = LoggerFactory.getLogger(ProducerWithKey.class.getName());
 
-    String bootstrapServers = "127.0.0.1:9092";
+    String bootstrapServers = "127.0.0.1:9092,127.0.0.1:9093";
 
     Properties kafkaProps = new Properties();
     kafkaProps.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -27,7 +27,7 @@ public class ProducerWithKey {
     KafkaProducer<String, String> producer = new KafkaProducer<>(kafkaProps);
 
     for (int i = 0; i < 10; i++) {
-      String topic = "first_topic";
+      String topic = "second_topic";
       String key = "id_" + i;
       String value = "Hello " + i;
 
